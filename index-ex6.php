@@ -106,6 +106,7 @@
                     <div class="tab-pane fade show active" id="ex6" role="tabpanel" aria-labelledby="contact-tab">
                         <h2>Exercise 6</h2>
                         <p>Insert data into MySQL table using PHP and MySQL.</p>
+                        <h3>Solution</h3>
                         <div class="alert alert-secondary text-center" role="alert">
                             <p>Insert a new person to DB persondb and the table persons.</p>
                             <form action="index-ex6.php" method ="POST">

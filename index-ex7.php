@@ -121,6 +121,7 @@
                     <div class="tab-pane fade show active" id="ex7" role="tabpanel" aria-labelledby="contact-tab">
                         <h2>Exercise 7</h2>
                         <p>Create a form which will insert data into MySQL table using PHP and MySQL.</p>
+                        <h3>Solution</h3>
                         <div class="alert alert-info text-center" role="alert">
                         <p>Insert a new person to DB persondb and the table persons.</p>
                             <form action="index-ex7.php" method ="POST">

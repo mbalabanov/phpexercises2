@@ -136,6 +136,7 @@
                     <div class="tab-pane fade show active" id="ex8" role="tabpanel" aria-labelledby="contact-tab">
                         <h2>Exercise 8</h2>
                         <p>Display all the records from the MySQL table using PHP and MySQL.</p>
+                        <h3>Solution</h3>
                         <div class="alert alert-warning text-center" role="alert">
                         <table  class="table">
                             <thead>
