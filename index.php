@@ -70,7 +70,7 @@
                                 <div class="browserdependent text-center">
                                     <p>This Browser's Box<br/>
                                     is RED on Mozilla Firefox<br/>
-                                    and BLUR on Google Chrome</p>
+                                    and BLUE on Google Chrome</p>
                                 </div>
                             </div>
                         </div>
