@@ -10,7 +10,7 @@
 
         <?php
             $viewer = getenv( "HTTP_USER_AGENT" );
-            $browser = "An unidentified browser";
+            $browser = "not identified";
             if(preg_match('/Chrome/i' , "$viewer"))
             {
                 $browser = 'Google Chrome';
@@ -79,16 +79,16 @@
                             <code>
 &lt;?php
     $viewer = getenv( &quot;HTTP_USER_AGENT&quot; );
-    $browser = &quot;An unidentified browser&quot;;
-    if( &quot;/Mozilla/i&quot;, &quot;$viewer&quot; ))
+    $browser = &quot;not identified&quot;;
+    if(preg_match(&apos;/Chrome/i&apos; , &quot;$viewer&quot;))
+    {
+        $browser = &apos;Google Chrome&apos;;
+        echo &apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/chrome.css&quot;&gt;&apos;;
+    }
+    elseif( preg_match( &quot;/Mozilla/i&quot;, &quot;$viewer&quot; ))
     {
         $browser = &quot;Mozilla Firefox&quot; ;
         echo &apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/mozilla.css&quot;&gt;&apos;;
-    }
-    elseif( preg_match( &quot;/Edg/i&quot;, &quot;$viewer&quot; ))
-    {
-        $browser = &quot;Microsoft Edge&quot; ;
-        echo &apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/edge.css&quot;&gt;&apos;;
     }
 ?&gt;
                             </code>
