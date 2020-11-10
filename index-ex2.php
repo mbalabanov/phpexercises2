@@ -8,22 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
-        <?php
-            $viewer = getenv( "HTTP_USER_AGENT" );
-            $browser = "an unidentified browser";
-            if( preg_match( '/Mozilla/i', '$viewer' ))
-            {
-                $browser = "Mozilla Firefox" ;
-                echo '<link rel="stylesheet" href="css/mozilla.css">';
-            }
-            elseif( preg_match( '/Chrome/i', '$viewer' ))
-            {
-                $browser = 'Google Chrome';
-                echo '<link rel="stylesheet" href="css/chrome.css">';
-            }
-        ?>
-
-        <title>Ex 1: PHP Exercises Day 2</title>
+        <title>Ex 2: PHP Exercises Day 2</title>
     </head>
     <body class="bg-light">
 
@@ -33,10 +18,10 @@
             <div class="col-12">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="home-tab" href="index.php" role="tab" aria-controls="home" aria-selected="true">Exercise 1</a>
+                        <a class="nav-link" id="home-tab" href="index.php" role="tab" aria-controls="home" aria-selected="true">Exercise 1</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="profile-tab" href="index-ex2.php" role="tab" aria-controls="profile" aria-selected="false">Exercise 2</a>
+                        <a class="nav-link active" id="profile-tab" href="index-ex2.php" role="tab" aria-controls="profile" aria-selected="false">Exercise 2</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="contact-tab" href="index-ex3.php" role="tab" aria-controls="contact" aria-selected="false">Exercise 3</a>
@@ -58,7 +43,7 @@
                     </li>
                 </ul>
                 <div class="tab-content border-left border-right border-bottom p-4 bg-white" id="myTabContent">
-                    <div class="tab-pane fade show active" id="ex1" role="ex4" aria-labelledby="home-tab">
+                    <div class="tab-pane fade" id="ex1" role="ex4" aria-labelledby="home-tab">
                         <h2>Exercise 1</h2>
                         <p>Create a PHP script which will be based on the browser type, include <em>chrome.css</em> or <em>mozilla.css</em> in the head section of your HTML document structure.</p>
                         <h3>Solution</h3>
@@ -94,15 +79,60 @@
                             </code>
                         </pre>
                     </div>
-                    <div class="tab-pane fade" id="ex2" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade show active" id="ex2" role="tabpanel" aria-labelledby="profile-tab">
                         <h2>Exercise 2</h2>
                         <p>Create a PHP script which will accept two parameters from the form (name and surname). The user must insert name and surname into the form to get the output: "Welcome Name Surname!" otherwise you will output the message: please insert your name, or please insert your surname.</p>
                         <h3>Solution</h3>
                         <div class="alert alert-primary text-center" role="alert">
+                            <div class="row">
+                                <div class="col-8 offset-2">
+                                    <p>Enter your first and last name then submit to display a greeting.</p>
+                                    <form action="index-ex2.php" method ="POST">
+                                        First Name: <input type="text" class="form-control" name="firstname" />
+                                        Last Name: <input type ="text" class="form-control" name="lastname" />
+                                        <input class="btn btn-primary m-2" type="submit" name="submit"  />
+                                    </form>
+                                    <?php
+                                        if( isset($_POST['submit']))
+                                        {
+                                            if( $_POST["firstname" ] && $_POST["lastname"] )
+                                            {
+                                                echo "<h3>Welcome ". $_POST[ 'firstname'] ." ". $_POST[ 'lastname'] .".</h3>";
+                                            } elseif ( !$_POST["firstname" ] )
+                                            {
+                                                echo "<h3>Please enter your first name.</h3>";
+                                            } elseif ( !$_POST["lastname"] )
+                                            {
+                                                echo "<h3>Please enter your last name.</h3>";
+                                            }
+                                        }
+                                    ?>
+                                </div>
+                            </div>
                         </div>
                         <h3>PHP Code</h3>
                         <pre class="border p-2">
                             <code>
+&lt;form action=&quot;index.php&quot; method =&quot;POST&quot;&gt;
+    First Name: &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;firstname&quot; /&gt;
+    Last Name: &lt;input type =&quot;text&quot; class=&quot;form-control&quot; name=&quot;lastname&quot; /&gt;
+    &lt;input class=&quot;btn btn-primary m-2&quot; type=&quot;submit&quot; name=&quot;submit&quot;  /&gt;
+&lt;/form&gt;
+&lt;?php
+    if( isset($_POST[&apos;submit&apos;]))
+    {
+        if( $_POST[&quot;firstname&quot; ] &amp;&amp; $_POST[&quot;lastname&quot;] )
+        {
+            echo &quot;Welcome &quot;. $_POST[ &apos;firstname&apos;] .&quot; &quot;. $_POST[ &apos;lastname&apos;] .&quot;.&lt;br /&gt;&quot;;
+        } elseif ( !$_POST[&quot;firstname&quot; ] )
+        {
+            echo &quot;Please insert your first name&quot;;
+        } elseif ( !$_POST[&quot;lastname&quot;] )
+        {
+            echo &quot;Please insert your last name&quot;;
+        }
+    }
+?&gt;
                             </code>
                         </pre>
                     </div>
@@ -145,7 +175,7 @@
                     <div class="tab-pane fade" id="ex6" role="tabpanel" aria-labelledby="contact-tab">
                         <h2>Exercise 6</h2>
                         <p>Insert data into MySQL table using PHP and MySQL.</p>
-                        <div class="alert alert-primary text-center" role="alert">
+                        <div class="alert alert-psrimary text-center" role="alert">
                         <?php
 
                         ?>

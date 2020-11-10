@@ -8,22 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
-        <?php
-            $viewer = getenv( "HTTP_USER_AGENT" );
-            $browser = "an unidentified browser";
-            if( preg_match( '/Mozilla/i', '$viewer' ))
-            {
-                $browser = "Mozilla Firefox" ;
-                echo '<link rel="stylesheet" href="css/mozilla.css">';
-            }
-            elseif( preg_match( '/Chrome/i', '$viewer' ))
-            {
-                $browser = 'Google Chrome';
-                echo '<link rel="stylesheet" href="css/chrome.css">';
-            }
-        ?>
-
-        <title>Ex 1: PHP Exercises Day 2</title>
+        <title>Ex. 8: PHP Exercises Day 2</title>
     </head>
     <body class="bg-light">
 
@@ -33,7 +18,7 @@
             <div class="col-12">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="home-tab" href="index.php" role="tab" aria-controls="home" aria-selected="true">Exercise 1</a>
+                        <a class="nav-link" id="home-tab" href="index.php" role="tab" aria-controls="home" aria-selected="true">Exercise 1</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="profile-tab" href="index-ex2.php" role="tab" aria-controls="profile" aria-selected="false">Exercise 2</a>
@@ -54,43 +39,19 @@
                         <a class="nav-link" id="contact-tab" href="index-ex7.php" role="tab" aria-controls="contact" aria-selected="false">Exercise 7</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="contact-tab" href="index-ex8.php"  role="tab" aria-controls="contact" aria-selected="false">Exercise 8</a>
+                        <a class="nav-link active" id="contact-tab" href="index-ex8.php"  role="tab" aria-controls="contact" aria-selected="false">Exercise 8</a>
                     </li>
                 </ul>
                 <div class="tab-content border-left border-right border-bottom p-4 bg-white" id="myTabContent">
-                    <div class="tab-pane fade show active" id="ex1" role="ex4" aria-labelledby="home-tab">
+                    <div class="tab-pane fade" id="ex1" role="ex4" aria-labelledby="home-tab">
                         <h2>Exercise 1</h2>
                         <p>Create a PHP script which will be based on the browser type, include <em>chrome.css</em> or <em>mozilla.css</em> in the head section of your HTML document structure.</p>
                         <h3>Solution</h3>
                         <div class="alert alert-primary text-center" role="alert">
-                            <?php
-                                echo("<p>You are using $browser</p>");
-                            ?>
-                            <div class="d-flex justify-content-center">
-                                <div class="browserdependent text-center">
-                                    <p>This Browser's Box<br/>
-                                    is RED on Mozilla Firefox<br/>
-                                    and BLUR on Google Chrome</p>
-                                </div>
-                            </div>
                         </div>
                         <h3>PHP Code</h3>
                         <pre class="border p-2">
                             <code>
-&lt;?php
-    $viewer = getenv( &quot;HTTP_USER_AGENT&quot; );
-    $browser = &quot;An unidentified browser&quot;;
-    if( &quot;/Mozilla/i&quot;, &quot;$viewer&quot; ))
-    {
-        $browser = &quot;Mozilla Firefox&quot; ;
-        echo &apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/mozilla.css&quot;&gt;&apos;;
-    }
-    elseif( preg_match( &quot;/Edg/i&quot;, &quot;$viewer&quot; ))
-    {
-        $browser = &quot;Microsoft Edge&quot; ;
-        echo &apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/edge.css&quot;&gt;&apos;;
-    }
-?&gt;
                             </code>
                         </pre>
                     </div>
@@ -172,7 +133,7 @@
                             </code>
                         </pre>
                     </div>
-                    <div class="tab-pane fade" id="ex8" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade show active" id="ex8" role="tabpanel" aria-labelledby="contact-tab">
                         <h2>Exercise 8</h2>
                         <p>Display all the records from the MySQL table using PHP and MySQL.</p>
                         <div class="alert alert-primary text-center" role="alert">
