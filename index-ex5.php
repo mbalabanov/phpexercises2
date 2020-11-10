@@ -95,7 +95,7 @@
                         <h2>Exercise 5</h2>
                         <p>Create a Table in your Database using PHP and MySQL.</p>
                         <h3>Solution</h3>
-                        <div class="alert alert-primary text-center" role="alert">
+                        <div class="alert alert-warning text-center" role="alert">
                             <form action="index-ex5.php" method ="POST">
                                 Enter name for the database: <input type="text" class="form-control text-center" name="dbname" />
                                 Enter name for new table: <input type="text" class="form-control text-center" name="dbtable" />

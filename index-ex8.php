@@ -136,15 +136,73 @@
                     <div class="tab-pane fade show active" id="ex8" role="tabpanel" aria-labelledby="contact-tab">
                         <h2>Exercise 8</h2>
                         <p>Display all the records from the MySQL table using PHP and MySQL.</p>
-                        <div class="alert alert-primary text-center" role="alert">
-                        <?php
+                        <div class="alert alert-warning text-center" role="alert">
+                        <table  class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                $servername = "localhost";
+                                $username   = "root";
+                                $password   = "";
+                                $dbname     = "persondb";
+                                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                                if (!$conn) {
+                                die("Connection failed: " . mysqli_connect_error() . "\n");
+                                }
+                                $sql = "SELECT person_id, first_name, last_name, email FROM persons";
+                                $result = mysqli_query($conn, $sql);
 
-                        ?>
+                                while($row = mysqli_fetch_assoc($result)) {
+                                    printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+                                                    $row[ "person_id"], $row["first_name"],$row["last_name"],$row["email"]);
+                                }
+                                mysqli_free_result($result);
+                                mysqli_close($conn);
+                            ?>
+                            </tbody>
+                        </table>
                         </div>
                         <h3>PHP Code</h3>
                         <pre class="border p-2">
                             <code>
+&lt;table  class=&quot;table&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+        &lt;th scope=&quot;col&quot;&gt;#&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;First Name&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Last Name&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Email&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;?php
+        $servername = &quot;localhost&quot;;
+        $username   = &quot;root&quot;;
+        $password   = &quot;&quot;;
+        $dbname     = &quot;persondb&quot;;
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        if (!$conn) {
+        die(&quot;Connection failed: &quot; . mysqli_connect_error() . &quot;\n&quot;);
+        }
+        $sql = &quot;SELECT person_id, first_name, last_name, email FROM persons&quot;;
+        $result = mysqli_query($conn, $sql);
 
+        while($row = mysqli_fetch_assoc($result)) {
+            printf(&quot;&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;&quot;,
+                            $row[ &quot;person_id&quot;], $row[&quot;first_name&quot;],$row[&quot;last_name&quot;],$row[&quot;email&quot;]);
+        }
+        mysqli_free_result($result);
+        mysqli_close($conn);
+    ?&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
                             </code>
                         </pre>
                     </div>

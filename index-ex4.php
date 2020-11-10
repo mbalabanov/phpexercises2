@@ -83,7 +83,7 @@
                         <h2>Exercise 4</h2>
                         <p>Create a Database using PHP and MySQL.</p>
                         <h3>Solution</h3>
-                        <div class="alert alert-primary text-center" role="alert">
+                        <div class="alert alert-danger text-center" role="alert">
                             <form action="index-ex4.php" method ="POST">
                                 Enter name for new database: <input type="text" class="form-control text-center" name="dbname" />
                                 <input class="btn btn-primary m-2" type="submit" name="submit"  />

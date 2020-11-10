@@ -10,16 +10,16 @@
 
         <?php
             $viewer = getenv( "HTTP_USER_AGENT" );
-            $browser = "an unidentified browser";
-            if( preg_match( '/Mozilla/i', '$viewer' ))
-            {
-                $browser = "Mozilla Firefox" ;
-                echo '<link rel="stylesheet" href="css/mozilla.css">';
-            }
-            elseif( preg_match( '/Chrome/i', '$viewer' ))
+            $browser = "An unidentified browser";
+            if(preg_match('/Chrome/i' , "$viewer"))
             {
                 $browser = 'Google Chrome';
                 echo '<link rel="stylesheet" href="css/chrome.css">';
+            }
+            elseif( preg_match( "/Mozilla/i", "$viewer" ))
+            {
+                $browser = "Mozilla Firefox" ;
+                echo '<link rel="stylesheet" href="css/mozilla.css">';
             }
         ?>
 

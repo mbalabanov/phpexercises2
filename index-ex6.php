@@ -106,7 +106,7 @@
                     <div class="tab-pane fade show active" id="ex6" role="tabpanel" aria-labelledby="contact-tab">
                         <h2>Exercise 6</h2>
                         <p>Insert data into MySQL table using PHP and MySQL.</p>
-                        <div class="alert alert-primary text-center" role="alert">
+                        <div class="alert alert-secondary text-center" role="alert">
                             <p>Insert a new person to DB persondb and the table persons.</p>
                             <form action="index-ex6.php" method ="POST">
                                 Enter person's first name: <input type="text" class="form-control text-center" name="firstname" />

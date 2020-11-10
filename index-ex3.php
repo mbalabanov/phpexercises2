@@ -78,7 +78,7 @@
                         <h2>Exercise 3</h2>
                         <p>Create a function which takes two integer parameters - divide them and output the result on the screen.</p>
                         <h3>Solution</h3>
-                        <div class="alert alert-primary text-center" role="alert">
+                        <div class="alert alert-success text-center" role="alert">
                                 <div class="row">
                                     <div class="col-8 offset-2">
                                         <p>Enter two numbers and submit them to divide them.</p>

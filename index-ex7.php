@@ -121,7 +121,7 @@
                     <div class="tab-pane fade show active" id="ex7" role="tabpanel" aria-labelledby="contact-tab">
                         <h2>Exercise 7</h2>
                         <p>Create a form which will insert data into MySQL table using PHP and MySQL.</p>
-                        <div class="alert alert-primary text-center" role="alert">
+                        <div class="alert alert-info text-center" role="alert">
                         <p>Insert a new person to DB persondb and the table persons.</p>
                             <form action="index-ex7.php" method ="POST">
                                 Enter person's first name: <input type="text" class="form-control text-center" name="firstname" />
@@ -175,7 +175,54 @@
                         <h3>PHP Code</h3>
                         <pre class="border p-2">
                             <code>
+&lt;form action=&quot;index-ex7.php&quot; method =&quot;POST&quot;&gt;
+    Enter person&apos;s first name: &lt;input type=&quot;text&quot; class=&quot;form-control text-center&quot; name=&quot;firstname&quot; /&gt;
+    Enter person&apos;s last name: &lt;input type=&quot;text&quot; class=&quot;form-control text-center&quot; name=&quot;lastname&quot; /&gt;
+    Enter person&apos;s email address: &lt;input type=&quot;email&quot; class=&quot;form-control text-center&quot; name=&quot;emailaddress&quot; /&gt;
+    &lt;input class=&quot;btn btn-primary m-2&quot; type=&quot;submit&quot; name=&quot;submit&quot;  /&gt;
+&lt;/form&gt;
+&lt;?php
 
+    function insertperson($firstname, $lastname, $emailaddress)
+    {
+        $servername = &quot;localhost&quot;;
+        $username = &quot;root&quot;;
+        $password = &quot;&quot; ;
+        $dbname = &quot;persondb&quot;;
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        if (!$conn) {
+            die(&quot;&lt;h3&gt;Connection failed: &quot;  . mysqli_connect_error() . &quot;&lt;/h3&gt;&quot;);
+        }
+        $sql = &quot;INSERT INTO persons (first_name, last_name, email)
+        VALUES (&apos;$firstname&apos;, &apos;$lastname&apos;, &apos;$emailaddress&apos;)&quot;;
+        if (mysqli_query($conn, $sql)) {
+            echo &quot;&lt;h3&gt;New record for $firstname $lastname created.&lt;/h3&gt;&quot;;
+        } else {
+            echo  &quot;&lt;h3&gt;Record creation error for: &quot; . $sql . &quot;&lt;br&gt;&quot; . mysqli_error($conn) .&quot;&lt;/h3&gt;&quot;;
+        }
+        mysqli_close($conn);
+    };
+
+    if( isset($_POST[&apos;submit&apos;]))
+    {
+        if( $_POST[&quot;firstname&quot; ] &amp;&amp; $_POST[&quot;lastname&quot; ] &amp;&amp; $_POST[&quot;emailaddress&quot; ] )
+        {
+            $firstname = $_POST[&quot;firstname&quot; ];
+            $lastname = $_POST[&quot;lastname&quot; ];
+            $emailaddress = $_POST[&quot;emailaddress&quot; ];
+            insertperson($firstname, $lastname, $emailaddress);
+        } elseif( !$_POST[&quot;firstname&quot; ] )
+        {
+            echo &quot;&lt;h3&gt;Please enter the first name&lt;/h3&gt;&quot;;
+        } elseif( !$_POST[&quot;lastname&quot; ] )
+        {
+            echo &quot;&lt;h3&gt;Please enter the last name&lt;/h3&gt;&quot;;
+        } elseif( !$_POST[&quot;emailaddress&quot; ] )
+        {
+            echo &quot;&lt;h3&gt;Please enter the email address&lt;/h3&gt;&quot;;
+        }
+    }
+?&gt;
                             </code>
                         </pre>
                     </div>
