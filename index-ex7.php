@@ -123,7 +123,7 @@
                         <p>Create a form which will insert data into MySQL table using PHP and MySQL.</p>
                         <h3>Solution</h3>
                         <div class="alert alert-info text-center" role="alert">
-                        <p>Insert a new person to DB persondb and the table persons.</p>
+                            <p>Insert a new person to DB <strong>persondb</strong> and the table <strong>persons</strong>.</p>
                             <form action="index-ex7.php" method ="POST">
                                 Enter person's first name: <input type="text" class="form-control text-center" name="firstname" />
                                 Enter person's last name: <input type="text" class="form-control text-center" name="lastname" />
